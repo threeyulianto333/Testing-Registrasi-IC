@@ -116,12 +116,15 @@ selanjutnya.click()
 # ======================= form Isian
 program = browser.find_element(by='id', value='program-bimbel')
 opsiprogram = [x for x in program.find_elements(by=By.TAG_NAME, value="option")]
+program.click()
+browser.implicitly_wait(10)
 
 # opsi = browser.find_element(by=By.XPATH, value='//option[]')
 # opsiprogram = element
 pOpsiProgram = len(opsiprogram)
-for i in pOpsiProgram:
-    nilai = opsiprogram[i].find_element(by=By.XPATH, value="//option[@value]")
+for element in opsiprogram:
+    # nilai = opsiprogram[i].find_element(by=By.XPATH, value="//option[@value]")
+    nilai = element.find_element(by=By.XPATH, value="//option[@value]")
     if nilai != 0:
         nilai.click()
 
